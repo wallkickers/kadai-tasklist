@@ -1,4 +1,6 @@
 class TasksController < ApplicationController
+  before_action :set_task, only:[:show,:edit,:update,:destroy]
+  
   def index
     @tasks = Task.all
   end
@@ -47,6 +49,12 @@ class TasksController < ApplicationController
     redirect_to tasks_url
   end
 
+  private
+  #共通部をまとめる
+  def set_task
+    @task = Task.find(params[:id])
+  end
+  
   #strong parameter
   def task_params
     params.require(:task).permit(:content)
