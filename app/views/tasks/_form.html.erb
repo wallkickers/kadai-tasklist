@@ -9,6 +9,7 @@
     </div>
   <% end %>
 
+  <%= f.select :status,[["未","未"],["済","済"]] %>
   <%= f.label :content, 'タスク' %>
   <%= f.text_field :content %>
 

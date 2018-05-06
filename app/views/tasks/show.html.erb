@@ -1,5 +1,5 @@
 <h1>No.<%= @task.id %> タスク</h1>
-<p><%= @task.content %></p>
+<p>&lt;<%= @task.status %>&gt;<%= @task.content %></p>
 
 <%= link_to "一覧に戻る", tasks_path %>
 <%= link_to "編集する", edit_task_path(@task) %>
