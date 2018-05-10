@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'taskposts/create'
+
+  get 'taskposts/destroy'
+
   get 'sessions/new'
 
   get 'sessions/create'
@@ -20,5 +24,7 @@ Rails.application.routes.draw do
   get "signup",to: "users#new"
   
   resources :tasks
+  
+  resources :taskposts, only: [:create,:destroy]
   
 end
