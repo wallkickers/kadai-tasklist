@@ -3,5 +3,5 @@ class Taskpost < ApplicationRecord
   
   validates :user_id, presence:true
   validates :content,presence:true,length: {maximum: 255}
-  
+  validates :status, presence: true, inclusion: { in: ["未", "済"] }
 end

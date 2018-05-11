@@ -12,7 +12,10 @@
       </ul>
     </div>
   <% end %>
-
+  <div class="form-group">
+    <%= f.label :status, '未/済' %>
+    <%= f.select :status,[["未","未"],["済","済"]] ,class:"form-control" %>    
+  </div>
   <div class="form-group">
     <%= f.label :content, 'タスク' %>
     <%= f.text_area :content, class: 'form-control', rows: 5 %>

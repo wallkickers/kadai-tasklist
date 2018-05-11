@@ -1,6 +1,6 @@
 class TaskpostsController < ApplicationController
   before_action :require_user_logged_in
-  before_action :correct_user, only: [:destroy,:update]
+  before_action :correct_user, only: [:destroy, :update, :edit, :show]
 
   def create
     @taskpost = current_user.taskposts.build(taskpost_params)
@@ -44,7 +44,7 @@ class TaskpostsController < ApplicationController
   private
   
   def taskpost_params
-    params.require(:taskpost).permit(:content)
+    params.require(:taskpost).permit(:content, :status)
   end
   
   def correct_user

@@ -15,6 +15,6 @@
       <li>Followings</li>
       <li>Followiers</li>
     </ul>
-    <%= render "taskposts/taskposts", taskposts: @taskposts %>
+    <%= current_user == @user ? (render "taskposts/taskposts", taskposts: @taskposts) : "private" %>
   </div>
 </div>
