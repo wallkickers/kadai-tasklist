@@ -13,8 +13,8 @@
         </div>
         <div>
           <% if current_user == taskpost.user %>
-            <%= link_to "Delete", taskpost, method: :delete, data: { confirm: "you sure?" } ,class: "btn btn-danger btn-xs" %>
-          <% end %>
+            <%= link_to "detail", taskpost,class:"btn btn-link btn-xs" %>
+          <% end  %>
         </div>
       </div>
     </li>

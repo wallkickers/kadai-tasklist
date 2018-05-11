@@ -1,0 +1,34 @@
+<% if logged_in? %>
+
+<div class="row">
+<div class="col-xs-6">
+<%= form_for(message) do |f| %>
+  <% if message.errors.any? %>
+    <div class="alert alert-warning"  id="error_explanation">
+      <ul>
+        <% message.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :content, 'タスク' %>
+    <%= f.text_area :content, class: 'form-control', rows: 5 %>
+  </div>
+  
+  <%= f.submit '編集',class:"btn btn-primary" %>
+<% end %>
+
+</div>
+</div>
+
+<% else %>
+<div class="center jumbotron">
+  <div class="text-center">
+    <h1>Welcome to the Task_Lists</h1>
+    <%= link_to "新規メンバー登録はこちら",signup_path,class: "btn btn-lg btn-primary" %></div>
+</div>
+
+<% end %>

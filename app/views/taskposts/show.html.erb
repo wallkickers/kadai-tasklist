@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-2">
+
+<table class="table table-bordered">
+  <tr>
+    <th>タスク</th>
+    <td><%= @taskpost.content %></td>
+  </tr>
+</table>
+
+  <% if current_user == @taskpost.user %>
+    <%= link_to 'このメッセージを編集する', edit_taskpost_path(@taskpost), class: 'btn btn-default' %>
+    <%= link_to 'このメッセージを削除する', @taskpost, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger' %>
+  <% end %>
+  
+  </div>
+    </div>

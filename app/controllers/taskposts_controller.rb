@@ -1,7 +1,7 @@
 class TaskpostsController < ApplicationController
   before_action :require_user_logged_in
-  before_action :correct_user, only: [:destroy]
-  
+  before_action :correct_user, only: [:destroy,:update]
+
   def create
     @taskpost = current_user.taskposts.build(taskpost_params)
     if @taskpost.save
@@ -16,9 +16,31 @@ class TaskpostsController < ApplicationController
   def destroy
     @taskpost.destroy
     flash[:success]= "タスクを削除しました"
-    redirect_back(fallback_location: root_path)
+    redirect_to root_url
   end
-
+  
+  def edit
+    @taskpost = Taskpost.find(params[:id])
+  end
+  
+  def update
+    if @taskpost.update(taskpost_params)
+      flash[:success] = "タスクは正常に更新されました"
+      redirect_to root_url
+    else
+      flash.now[:danger] = "タスクは更新されませんでした"
+      render root_url
+    end
+  end
+  
+  def show
+    @taskpost = Taskpost.find(params[:id])
+  end
+  
+  def edit
+    @taskpost = Taskpost.find(params[:id])
+  end
+  
   private
   
   def taskpost_params
